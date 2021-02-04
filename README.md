@@ -7,3 +7,6 @@ to thwart forensic recovery.
 Note- this program is meant for hard disk drives only; It may or may not work
 on SSDs.
 Another note- this is a work in progress no error checking has been implemented.
+
+This program is to be used as is with no warranty. If you break something it's
+your own fault.
