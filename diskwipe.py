@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-############################################
-#diskwipe.py- a crude disk wiping program  #
-#       http://github.com/kjh9000          #
-############################################
+###############################################
+#diskwipe.py v2- a simple disk wiping program #
+#         http://github.com/kjh9000           #
+###############################################
 
 import os
 
@@ -15,18 +15,26 @@ if filename == '':
     filename = 'temp.txt'
 
 # Prompts user for file size, sets to a default of 1GB if no number is given
-size = input("How big? A number to specify the size in GB (default is about 1GB):") 
-if size =='':
-    size = 1
+size = ''
+while type(size) != int: # A check to be certain a whole number is passed
+    try:
+        size = input("How big? A number to specify the size in GB (default" +
+        " is about 1GB):")
+        if size =='':
+            size =  1
+        else:
+            size = int(size)
+    except ValueError:
+        print("Invalid size. Whole numbers only please.")
+        continue
 
 # Prompts for file autoremoval
-autorem = input("Do you want the program to delete the temporary file for you? \
-(y/N): ")
+autorem = input("Do you want the program to delete the temporary file for you? (y/N): ")
 
 # Creates the file then writes zeros and ones to it 
 zerosandones = ''
 print("Writing to file...")
-with open(filename, 'w') as fo:
+with open(os.getcwd() + "/" + filename, 'w') as fo:
     for i in range(50000 * int(size)):
         """This huge block of zeros and ones is much faster than generating it
         with a loop. You might make it even faster by adding more zeros and ones
