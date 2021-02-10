@@ -1,12 +1,21 @@
 # DiskWipe
-The purpose of this program is to partially wipe a disk drive. Data deleted
-via the OS will still remain on a hard disk until it's overwritten with 
-something else, making forensic recovery possible. This program creates that
-something else, in the form of a file filled with zeros and ones, in an attempt
-to thwart forensic recovery.
-Note- this program is meant for hard disk drives only; It may or may not work
-on SSDs.
-Another note- this is a work in progress no error checking has been implemented.
+Overview:
+The purpose of this program is to partially wipe a disk drive. This program is 
+meant for hard disk drives only; It may or may not work on SSDs.
 
-This program is to be used as is with no warranty. If you break something it's
-your own fault.
+Data deleted via the OS will still remain on a hard disk until it's overwritten
+with something else, making forensic recovery possible. This program creates that
+something else, in the form of a file filled with zeros and ones, in an attempt
+to thwart forensic recovery. This is by no means a garunteed safe method of
+data removal. The only surefire way to destroy data is physical destruction of
+the medium it is stored on.
+
+This program is to be used as is with no warranty or liability accepted for 
+anything bad that happens.
+
+Current issues:
+Program currently must be ran from the current working directory. I want to allow
+the user to specify a path. Hoping fix later.
+Program doesn't verify available disk space. Hoping implement a check for this in future
+versions.
+
