@@ -15,8 +15,8 @@ flag = 0
 while flag == 0:
     try:
         if answer =='n':
-            location = input("Please enter the desired path, or nothing (hit " + 
-            "the enter key to accept the default (" + os.getcwd() + ").")
+            location = input("Please enter the desired path, or hit the " + 
+            "Enter key to accept the default (" + os.getcwd() + ").")
         if location == '':
             location = os.getcwd()
             flag = 1
