@@ -6,8 +6,26 @@
 
 import os
 
-# Inform the user where the new file will be placed
+# Inform the user where the new file will be placed, and prompts the user for 
+# any desired change
 print("The temporary file will be created in " + os.getcwd() + ".")
+answer = input("Is this the correct path? (Y/n)" )
+location = ''
+flag = 0
+while flag == 0:
+    try:
+        if answer =='n':
+            location = input("Please enter the desired path, or hit the enter" + 
+            " key to accept the default (" + os.getcwd() + ").")
+        if location == '':
+            location = os.getcwd()
+            flag = 1
+        location = "/" + location
+        os.chdir(location)
+        flag = 1
+    except FileNotFoundError:
+        print("Path error")
+        continue
 
 # Prompts user to name the file, or sets the default name
 filename = input("Give your temporary file a name (default is temp.txt): ")
