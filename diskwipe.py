@@ -13,8 +13,8 @@ answer = 'something'
 flag0 = 0
 while flag0 == 0:
     print("The temporary file will be created in " + os.getcwd() + ".")
-    answer = input("Is this the desired path? (Y/n): " )
-    if answer.lower() != 'y' and answer.lower() != 'n'and answer != '':
+    answer = input("Is this the desired location? (Y/n): " )
+    if answer.lower() not in ['y','n', '']:
         print("Please enter y for yes, or n for no.")
         continue
     else:
@@ -25,7 +25,7 @@ flag1 = 0
 while flag1 == 0:
     try:
         if answer =='n':
-            location = input("Please enter the desired path, or hit the " + 
+            location = input("Please enter the desired location, or hit the " + 
             "Enter key to accept the default (" + os.getcwd() + ").")
         if location == '':
             location = os.getcwd()
@@ -47,7 +47,7 @@ autorem = 'something'
 flag2 = 0
 while flag2 == 0:
     autorem = input("Do you want the program to delete the temporary file for you? (y/N): ")
-    if autorem.lower() != 'y' and autorem.lower() != 'n' and autorem != '':
+    if autorem.lower() not in ['y','n', '']:
         print("Please enter y for yes, or n for no.")
         continue
     else:
