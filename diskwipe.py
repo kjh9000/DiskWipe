@@ -350,7 +350,7 @@ with open(os.getcwd() + "/" + filename, 'w') as fo:
                 01010101010101010101")
 
 # Removes the file if desired
-if autorem == 'y' or autorem == 'Y':
+if autorem.lower() == 'y':
     os.remove(filename)
 
 print("\nDone.")
