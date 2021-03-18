@@ -8,11 +8,21 @@ import os
 
 # Inform the user where the new file will be placed, and prompts the user for 
 # any desired change
-print("The temporary file will be created in " + os.getcwd() + ".")
-answer = input("Is this the desired path? (Y/n): " )
+print("diskwipe.py")
+answer = 'something'
+flag0 = 0
+while flag0 == 0:
+    print("The temporary file will be created in " + os.getcwd() + ".")
+    answer = input("Is this the desired path? (Y/n): " )
+    if answer.lower() != 'y' and answer.lower() != 'n'and answer != '':
+        print("Please enter y for yes, or n for no.")
+        continue
+    else:
+        flag0 = 1
+
 location = ''
-flag = 0
-while flag == 0:
+flag1 = 0
+while flag1 == 0:
     try:
         if answer =='n':
             location = input("Please enter the desired path, or hit the " + 
@@ -22,7 +32,7 @@ while flag == 0:
             flag = 1
         location = "/" + location
         os.chdir(location)
-        flag = 1
+        flag1 = 1
     except FileNotFoundError:
         print("Path error.")
         continue
@@ -31,6 +41,17 @@ while flag == 0:
 filename = input("Give your temporary file a name (default is temp.txt): ")
 if filename == '':
     filename = 'temp.txt'
+
+# Prompts for file autoremoval
+autorem = 'something'
+flag2 = 0
+while flag2 == 0:
+    autorem = input("Do you want the program to delete the temporary file for you? (y/N): ")
+    if autorem.lower() != 'y' and autorem.lower() != 'n' and autorem != '':
+        print("Please enter y for yes, or n for no.")
+        continue
+    else:
+        flag2 = 1
 
 # Prompts user for file size, sets to a default of 1GB if no number is given
 size = ''
@@ -46,8 +67,6 @@ while type(size) != int: # A check to be certain a whole number is passed
         print("Invalid size. Whole numbers only please.")
         continue
 
-# Prompts for file autoremoval
-autorem = input("Do you want the program to delete the temporary file for you? (y/N): ")
 
 # Creates the file then writes zeros and ones to it 
 zerosandones = ''
