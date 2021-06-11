@@ -78,7 +78,6 @@ def temp_file_size():
 def write_data():
     '''writes the data to file'''
     global size
-    zerosandones = ''
     print("Writing to file...")
     with open(os.getcwd() + "/" + filename, 'w') as fo:
         for i in range(50000 * int(size)):
